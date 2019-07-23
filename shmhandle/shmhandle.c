@@ -17,17 +17,19 @@ union semun
 //p操作
 static void p(int id)
 {
-    struct sembuf sb[1];
-    sb[0].sem_num=0;
-    sb[0].sem_op=-1;
+	struct sembuf sb[1];
+	sb[0].sem_num = 0;
+	sb[0].sem_op = -1;
+	sb[0].sem_flg = 0;
+	semop(id, sb, 1);
 }
 static void v(int id)
 {
-    struct sembuf sb[1];
-    sb[0].sem_num=0;
-    sb[0].sem_op=1;
-    sb[0].sem_flg=0;
-
+	struct sembuf sb[1];
+	sb[0].sem_num = 0;
+	sb[0].sem_op = 1;
+	sb[0].sem_flg = 0;
+	semop(id, sb, 1);
 }
 //初始化
 shmfifo_t* shmfifo_init(int key,int blocks,int blksz)
