@@ -17,5 +17,7 @@ mount -t hugetlbfs nodev /mnt/huge
 
 echo [--dpdk-20.08 is ok, please devbind nics---]
 cd usertools
-python dpdk-devbind.py --status
-echo [---such as python dpdk-devbind.py --bing=igb_uio 02:00.1---]
+python3 dpdk-devbind.py --status
+echo [---such as python3 dpdk-devbind.py --bing=igb_uio 02:00.1---]
+
+
